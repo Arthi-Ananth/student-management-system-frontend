@@ -1,0 +1,24 @@
+<div *ngIf="step === 'signup'">
+    <h2>Signup</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <input formControlName="name" placeholder="Name">
+        <input formControlName="email" placeholder="Email">
+        <input formControlName="phone" placeholder="Phone">
+        <input type="password" formControlName="password" placeholder="Password">
+        <select formControlName="role">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
+        <button type="submit">Signup</button>
+    </form>
+</div>
+
+<div *ngIf="step === 'otp'">
+    <h2>Verify OTP</h2>
+    <form [formGroup]="otpForm" (ngSubmit)="onVerifyOtp()">
+        <input formControlName="otp" placeholder="Enter OTP">
+        <button type="submit">Verify</button>
+    </form>
+</div>
+
+<div *ngIf="message">{{ message }}</div>
